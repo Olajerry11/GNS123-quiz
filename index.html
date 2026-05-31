@@ -3,27 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GNS 123 Quiz App</title>
-    <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f7f6; padding: 20px; }
-        .container { max-width: 600px; margin: 0 auto; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
-        button { background-color: #007bff; color: white; border: none; padding: 10px 20px; cursor: pointer; border-radius: 4px; font-size: 16px; margin-top: 15px;}
-        button:hover { background-color: #0056b3; }
-        .option-btn { display: block; width: 100%; margin: 8px 0; padding: 12px; background: #e9ecef; border: none; border-radius: 4px; text-align: left; cursor: pointer; transition: 0.3s; color: #333; font-weight: 500; }
-        .option-btn:hover:not(:disabled) { background: #d3d9df; }
-        .correct { background: #28a745 !important; color: white !important; }
-        .wrong { background: #dc3545 !important; color: white !important; }
-    </style>
+    <meta name="description" content="JABU GNS 123 Objective Quiz Application">
+    <title>JABU Quiz Application</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="app-container">
+        <header>
+            <img src="Jabu logo.png" alt="JABU Logo" class="logo" onerror="this.style.display='none'">
+            <h1>GNS 123 Objective Quiz</h1>
+        </header>
+        
+        <main id="app-main">
+            <div id="loading-state" class="state-container">
+                <p>Loading quiz data...</p>
+            </div>
 
-<div class="container" id="quiz-section">
-    <h3 id="question-text">Loading Questions...</h3>
-    <div id="options-container"></div>
-    <p id="score-tracker" style="margin-top: 20px; font-weight: bold;"></p>
-    <button id="next-btn" style="display: none;">Next Question</button>
-</div>
+            <div id="error-state" class="state-container hidden">
+                <h2>Error Loading Quiz</h2>
+                <p>There was a problem parsing the quiz data. Please ensure the format is correct.</p>
+                <div id="error-details"></div>
+            </div>
 
-<script src="script.js"></script>
+            <div id="quiz-state" class="state-container hidden">
+                <div class="progress-container">
+                    <span id="question-counter">Question 1 of X</span>
+                    <span id="score-display">Score: 0</span>
+                </div>
+                
+                <div class="question-container">
+                    <h2 id="question-text">Question text goes here</h2>
+                    <div id="options-container" class="options-container">
+                        <!-- Options will be injected here -->
+                    </div>
+                </div>
+
+                <div class="controls-container">
+                    <button id="next-btn" class="primary-btn hidden">Next Question</button>
+                </div>
+            </div>
+
+            <div id="results-state" class="state-container hidden">
+                <h2>Quiz Completed!</h2>
+                <p class="final-score">Your Score: <span id="final-score-value">0</span> / <span id="total-questions-value">0</span></p>
+                <button id="restart-btn" class="primary-btn">Restart Quiz</button>
+            </div>
+        </main>
+    </div>
+    <script src="data.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

@@ -1,0 +1,206 @@
+:root {
+    --bg-color: #f4f7f6;
+    --container-bg: #ffffff;
+    --text-primary: #2c3e50;
+    --text-secondary: #555555;
+    --btn-bg: #ecf0f1;
+    --btn-hover: #bdc3c7;
+    --btn-text: #2c3e50;
+    --primary-color: #3498db;
+    --primary-hover: #2980b9;
+    --correct-color: #27ae60;
+    --incorrect-color: #e74c3c;
+    --border-radius: 10px;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    line-height: 1.6;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    min-height: 100vh;
+}
+
+.app-container {
+    background-color: var(--container-bg);
+    width: 100%;
+    max-width: 800px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    text-align: center;
+    padding: 30px 20px;
+    border-bottom: 1px solid #eeeeee;
+}
+
+.logo {
+    max-width: 150px;
+    height: auto;
+    margin-bottom: 15px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+header h1 {
+    font-size: 1.5rem;
+    color: var(--text-primary);
+}
+
+main {
+    padding: 30px 20px;
+    flex-grow: 1;
+}
+
+.state-container {
+    display: flex;
+    flex-direction: column;
+    animation: fadeIn 0.4s ease-in-out;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.progress-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    font-weight: bold;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    border-bottom: 2px solid var(--bg-color);
+    padding-bottom: 10px;
+}
+
+.question-container h2 {
+    font-size: 1.25rem;
+    margin-bottom: 25px;
+    font-weight: 600;
+}
+
+.options-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.option-btn {
+    background-color: var(--btn-bg);
+    border: 2px solid transparent;
+    border-radius: var(--border-radius);
+    padding: 15px 20px;
+    font-size: 1rem;
+    text-align: left;
+    color: var(--btn-text);
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+}
+
+.option-btn:hover:not(:disabled) {
+    background-color: var(--btn-hover);
+}
+
+.option-btn:disabled {
+    cursor: not-allowed;
+    opacity: 0.9;
+}
+
+.option-btn.correct {
+    background-color: rgba(39, 174, 96, 0.1);
+    border-color: var(--correct-color);
+    color: var(--correct-color);
+}
+
+.option-btn.incorrect {
+    background-color: rgba(231, 76, 60, 0.1);
+    border-color: var(--incorrect-color);
+    color: var(--incorrect-color);
+}
+
+.controls-container {
+    margin-top: 30px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.primary-btn {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius);
+    padding: 12px 25px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.primary-btn:hover {
+    background-color: var(--primary-hover);
+}
+
+#results-state {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+#results-state h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+}
+
+.final-score {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    font-weight: bold;
+}
+
+#error-state {
+    text-align: center;
+    color: var(--incorrect-color);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Mobile optimizations */
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+    
+    header {
+        padding: 20px 15px;
+    }
+    
+    .question-container h2 {
+        font-size: 1.15rem;
+    }
+    
+    .option-btn {
+        padding: 12px 15px;
+        font-size: 0.95rem;
+    }
+}
