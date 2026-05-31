@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GNS 123 Quiz App</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f7f6; padding: 20px; }
+        .container { max-width: 600px; margin: 0 auto; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        button { background-color: #007bff; color: white; border: none; padding: 10px 20px; cursor: pointer; border-radius: 4px; font-size: 16px; margin-top: 15px;}
+        button:hover { background-color: #0056b3; }
+        .option-btn { display: block; width: 100%; margin: 8px 0; padding: 12px; background: #e9ecef; border: none; border-radius: 4px; text-align: left; cursor: pointer; transition: 0.3s; color: #333; font-weight: 500; }
+        .option-btn:hover:not(:disabled) { background: #d3d9df; }
+        .correct { background: #28a745 !important; color: white !important; }
+        .wrong { background: #dc3545 !important; color: white !important; }
+    </style>
+</head>
+<body>
+
+<div class="container" id="quiz-section">
+    <h3 id="question-text">Loading Questions...</h3>
+    <div id="options-container"></div>
+    <p id="score-tracker" style="margin-top: 20px; font-weight: bold;"></p>
+    <button id="next-btn" style="display: none;">Next Question</button>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
